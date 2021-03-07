@@ -2,16 +2,20 @@
 <script>
 console.log("initialized")
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("https://gmod.pages.dev/sw.js");
+    navigator.serviceWorker.register("url_blocker_sw.js");
 }
-const Http = new XMLHttpRequest();
-const url='https://jsonplaceholder.typicode.com/posts';
-Http.open("GET", url);
-Http.send();
+function testHttpReq() {
+    const Http = new XMLHttpRequest();
+    const url='https://jsonplaceholder.typicode.com/posts';
+    Http.open("GET", url);
+    Http.send();
 
-Http.onreadystatechange = (e) => {
-  console.log(Http.responseText)
+    Http.onreadystatechange = (e) => {
+      console.log("responded")
+    }
 }
+
+
 </script>
 <!DOCTYPE html>
 <html>
