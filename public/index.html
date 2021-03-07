@@ -2,13 +2,15 @@
 <script>
 console.log("initialized")
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('sw.js').then(function(registration) {
-      console.log('Service worker registered with scope: ', registration.scope);
-    }, function(err) {
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  });
+    navigator.serviceWorker.register("https://gmod.pages.dev/sw.js");
+}
+const Http = new XMLHttpRequest();
+const url='https://jsonplaceholder.typicode.com/posts';
+Http.open("GET", url);
+Http.send();
+
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
 }
 </script>
 <!DOCTYPE html>
